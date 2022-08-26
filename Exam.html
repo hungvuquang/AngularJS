@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Average</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body>
+<div ng-app="costApp" ng-controller="CostController">
+    <b>Diem thi</b>
+    <div>Toan: <input type="number" min="0" ng-model="toan" required></div>
+    <div>Ly:  <input type="number" min="0" ng-model="ly" required></div>
+    <div>Hoa: <input type="number" min="0" ng-model="hoa" required></div>
+    <b>Ket qua:</b>
+    <span>
+            {{ketqua}}
+    </span>
+    <button class="btn" ng-click="pay()">Tong diem</button>
+    <script>
+        var app = angular.module('costApp', []);
+        app.controller('CostController', function ($scope){
+            $scope.toan = 0;
+            $scope.ly = 0;
+            $scope.hoa = 0;
+            $scope.ketqua="unknown"
+            $scope.pay = function (){
+                this.total = this.toan + this.ly + this.hoa
+                if (this.total > 15)
+                      this.ketqua = "Do"
+                else
+                      this.ketqua = 'Truot'
+            };
+        });
+    </script>
+</div>
+</body>
+</html>

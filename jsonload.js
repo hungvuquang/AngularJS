@@ -1,6 +1,6 @@
 var myApp=angular.module('myApp',[]);
 
-myApp.controller('jsonCtrl', function ($scope, $html) {
+myApp.controller('jsonCtrl', function ($scope, $http) {
     $html.get('employees.json').success(function (data) {
         $scope.employees=data;
     });
